@@ -2,21 +2,10 @@ package com.demo.rawcsvdemo;
 
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
-import android.util.Log;
-import android.view.View;
-
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -27,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Defining ordered collection as Income class
-    private List<Income> incomeList = new ArrayList<>();
+   // private List<Post> incomeList = new ArrayList<>();
     ArrayList<String> listDataArray;
 
 
@@ -61,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 String[] cols = line.split(",");
 
                 // Print in logcat
-                System.out.println("Coulmn 0 = '" + cols[0] + "', Column 1 = '" + cols[1] + "', Column 2: '" + cols[2] + "'");
+                System.out.println("Column 0 = '" + cols[0] + "', Column 1 = '" + cols[1] + "', Column 2: '" + cols[2] + "'");
                 listDataArray.add(cols[0]+ " " + cols[1]+ " " + cols[2]);
             }
         } catch (IOException e) {
@@ -99,9 +88,9 @@ public class MainActivity extends AppCompatActivity {
                 Income sample = new Income();
 
                 // Setters
-                sample.setMonth(tokens[0]);
-                sample.setGross(Double.parseDouble(tokens[1]));
-                sample.setExpense(Double.parseDouble(tokens[2]));
+                sample.setPostId(tokens[0]);
+                sample.setDesc(tokens[1]);
+                sample.setUrl(tokens[2]);
 
                 // Adding object to a class
                 incomeList.add(sample);
